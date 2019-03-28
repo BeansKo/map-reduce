@@ -23,7 +23,6 @@ public class ReadHFileMapper extends Mapper<NullWritable, Cell, Text, KeyValue>{
 			throws IOException, InterruptedException {
 		String columnFamily = Bytes.toString(CellUtil.cloneFamily(value));
 		String qualifier = Bytes.toString(CellUtil.cloneFamily(value));
-		String colName = 
 	}
 
 	@Override

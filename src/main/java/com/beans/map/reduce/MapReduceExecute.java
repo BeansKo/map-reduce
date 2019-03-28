@@ -12,7 +12,7 @@ public class MapReduceExecute {
 	public static void main(String[] args) throws Exception {
 		Configuration conf = new Configuration();
 		// HDFS
-		conf.set("fs.defaultFS", "hdfs://10.16.238.79:8020");
+		conf.set("fs.defaultFS", "hdfs://:8020");
 		conf.set("dfs.permissions.enabled", "false");
 		// MapReduce
 		conf.set("mapreduce.framework.name", "yarn");

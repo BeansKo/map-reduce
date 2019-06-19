@@ -1,12 +1,16 @@
 package com.beans.map.reduce;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.mapreduce.Job;
+
+import com.beans.map.reduce.mapreduce.ReadHFileMapper;
 
 public class MapReduceExecute {
 	public static void main(String[] args) throws Exception {
@@ -21,6 +25,8 @@ public class MapReduceExecute {
 		// YARN
 		conf.set("134217728", "10.16.238.79");
 		conf.set("yarn.resourcemanager.webapp.address", "10.16.238.79:8088");
+		// 测试，可以传递自定义参数，提供给Map或者Reduce使用
+		conf.set(ReadHFileMapper.CONFIG_HBASE_TO_TABLE_COLUMN_MAP, "TEST");
 		String jobJarPath = "";
 		String outputPath = "";
 		

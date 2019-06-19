@@ -27,7 +27,7 @@ public class SnapshotHFile {
 	private static final Logger logger = Logger.getLogger(SnapshotHFile.class);
 	
 	public static String createSnapShop(){
-		String zookeeperAddress = "";
+		String zookeeperAddress = "10.16.238.79,10.16.238.80,10.16.238.81";
 		String zookeeperPort = "2181";
 		String maxThreadsPerHtable = "50";
 		String tableName = "ecitem:IM_ItemBase";
@@ -46,7 +46,7 @@ public class SnapshotHFile {
 	public static List<String> getSnapshotFiles() throws IOException  {
 		String snapshotName = createSnapShop();
         Configuration config = HBaseConfiguration.create();
-        config.set("hbase.rootdir", "hdfs:///hbase");
+        config.set("hbase.rootdir", "hdfs://10.16.238.79:8020/hbase");
         config.set("dfs.permissions.enabled", "false");
         Set<String> columns = new HashSet<String>();
         String columnFamilies = "BaseInfo,ImageInfo";
